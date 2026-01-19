@@ -26,7 +26,7 @@ The app allows users to browse available fields, view details, and make bookings
 
 _Add screenshots inside `assets/screenshots/` and update paths below._
 
-```md
+
 ### Home Screen
 ![Home](assets/screenshots/home.png)
 
@@ -42,7 +42,7 @@ _Add screenshots inside `assets/screenshots/` and update paths below._
 ### Register
 ![Register](assets/screenshots/register.png)
 
-🧰 Tech Stack
+## 🧰 Tech Stack
 
 React Native
 
