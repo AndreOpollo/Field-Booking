@@ -1,50 +1,115 @@
-# Welcome to your Expo app 👋
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+# 📅 Field Booking App
 
-## Get started
+A cross-platform **field booking mobile application** built with **React Native, Expo, TypeScript, and Firebase**.  
+The app allows users to browse available fields, view details, and make bookings, with authentication handled via Firebase.
 
-1. Install dependencies
+---
 
-   ```bash
-   npm install
-   ```
+## 🚀 Features
 
-2. Start the app
+- User authentication (Login & Register)
+- Home screen with available fields
+- Field details screen
+- Booking details screen
+- Firebase Authentication & Firestore
+- Custom React hooks for authentication logic
+- File-based routing using **expo-router**
 
-   ```bash
-   npx expo start
-   ```
+### 🛠 Upcoming Features
+- Favorites screen
+- Payments integration
 
-In the output, you'll find options to open the app in a
+---
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+## 📸 Screenshots
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+_Add screenshots inside `assets/screenshots/` and update paths below._
 
-## Get a fresh project
+```md
+### Home Screen
+![Home](assets/screenshots/home.png)
 
-When you're ready, run:
+### Field Details
+![Field Details](assets/screenshots/field-details.png)
 
-```bash
-npm run reset-project
-```
+### Booking Details
+![Booking Details](assets/screenshots/book-details.png)
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+### Login
+![Login](assets/screenshots/login.png)
 
-## Learn more
+### Register
+![Register](assets/screenshots/register.png)
 
-To learn more about developing your project with Expo, look at the following resources:
+🧰 Tech Stack
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+React Native
 
-## Join the community
+Expo
 
-Join our community of developers creating universal apps.
+TypeScript
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+Firebase (Auth & Firestore)
+
+expo-router
+
+📂 Project Structure
+├── app/               # Screens & routes (expo-router)
+├── components/        # Reusable UI components
+├── hooks/             # Custom React hooks
+├── assets/            # Images & fonts
+├── config/            # Firebase config (you must create this)
+├── package.json
+└── tsconfig.json
+
+⚙️ Setup & Installation
+1️⃣ Clone the repository
+git clone https://github.com/AndreOpollo/Field-Booking.git
+cd Field-Booking
+
+2️⃣ Install dependencies
+npm install
+
+3️⃣ Firebase Configuration
+
+Create a folder named config and add a file firebase.ts.
+
+import { initializeApp } from "firebase/app";
+import { getAuth } from "firebase/auth";
+import { getFirestore } from "firebase/firestore";
+
+const firebaseConfig = {
+  apiKey: "YOUR_API_KEY",
+  authDomain: "YOUR_AUTH_DOMAIN",
+  projectId: "YOUR_PROJECT_ID",
+  storageBucket: "YOUR_STORAGE_BUCKET",
+  messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+  appId: "YOUR_APP_ID"
+};
+
+const app = initializeApp(firebaseConfig);
+
+export const auth = getAuth(app);
+export const db = getFirestore(app);
+
+4️⃣ Run the app
+npx expo start
+
+
+Scan QR code with Expo Go
+
+Or run on Android/iOS emulator
+
+🧠 Authentication
+
+Authentication logic is abstracted using custom React hooks, keeping UI components clean and reusable.
+
+🧭 Navigation
+
+Navigation is handled using expo-router, providing file-based routing for scalable navigation structure.
+
+🤝 Contributions
+
+Contributions are welcome!
+Fork the repo, create a feature branch, and open a pull request.
