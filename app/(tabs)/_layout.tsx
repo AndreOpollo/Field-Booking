@@ -1,5 +1,5 @@
 import { Tabs } from 'expo-router'
-import { Home, User } from 'lucide-react-native'
+import { Calendar, Heart, Home, User } from 'lucide-react-native'
 import React from 'react'
 
 const TabLayout = () => {
@@ -11,6 +11,10 @@ const TabLayout = () => {
                     return <Home color={color} size={size}/>
                 case 'profile':
                     return <User color={color} size={size}/>
+                case 'favorite':
+                    return <Heart color={color} size={size}/>
+                case 'booking':
+                    return <Calendar color={color} size={size}/>    
                 default:
                     return null
             }
@@ -20,6 +24,8 @@ const TabLayout = () => {
         headerShown:false
     })}>
         <Tabs.Screen name='index' options={{title:'Home'}}/>
+        <Tabs.Screen name='favorite' options={{title:'Favorite'}}/>
+        <Tabs.Screen name='booking' options={{title:'Booking'}}/>
         <Tabs.Screen name='profile' options={{title:'Profile'}}/>
     </Tabs>
   )

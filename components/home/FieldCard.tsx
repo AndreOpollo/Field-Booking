@@ -1,6 +1,6 @@
 import { Image } from 'expo-image'
 import { router } from 'expo-router'
-import { Clock3, Heart, StarIcon } from 'lucide-react-native'
+import { Clock3, Heart, Star, StarIcon } from 'lucide-react-native'
 import React from 'react'
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import { Field } from './types'
@@ -27,15 +27,20 @@ const FieldCard:React.FC<FieldCardProps>= ({field,index}) => {
             name:field.location,
             image: JSON.stringify(field.image),
             time:field.time,
-            price:field.price
+            price:field.price,
+            tag:`field-image-${field.id}`,
+            location:field.location,
+            extras:JSON.stringify(field.extras)
         }
     })
   }  
+  const filledIcons = field.rating
+  const unfilledIcons = 5 - field.rating
   return (
     <TouchableOpacity onPress={handlePress} activeOpacity={0.8} style={styles.container}>
       <View style={styles.fieldContainer}>
         <View style={styles.imageContainer}>
-            <Image 
+            <Image
             source={{uri:field.image[0]}}
             contentFit='cover'
             style={{
@@ -52,13 +57,19 @@ const FieldCard:React.FC<FieldCardProps>= ({field,index}) => {
         </View>
         <View style={styles.description}>
             <View style={styles.title}>
-                <Text style={styles.location}>{field.location}</Text>
+                <Text style={styles.location}>{field.location.slice(0,22)}...</Text>
                 <View style={{flexDirection:'row',gap:2}}>
-                    <StarIcon  color="#a91414" size={16}/>
-                    <StarIcon  color="#a91414" size={16}/>
-                    <StarIcon  color="#a91414" size={16}/>
-                    <StarIcon  color="#a91414" size={16}/>
-                    <StarIcon  color="#a91414" size={16}/>
+                    {
+                        Array.from({length:field.rating}).map((_,i)=>(
+                            <Star key={`filled-${i}`}fill='#a91414' size={16}/>
+                        ))
+                    }
+                    {
+                        Array.from({length:5-field.rating}).map((_,i)=>(
+                            <StarIcon  key={`unfilled-${i}`}color="#a91414" size={16}/>
+
+                        ))
+                    }
                 </View>
             </View>
             <View style={styles.time}>

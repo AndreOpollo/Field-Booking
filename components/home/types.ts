@@ -9,4 +9,5 @@ export interface Field{
         name:string,
         color:string
     }[],
+    extras:string[]
 }

@@ -19,16 +19,21 @@ const extras = ["CCTV Camera", "Parking", "Lockers", "Washroom","Free WiFi"]
 
 
 const FieldDetails = () => {
-    const {id,name,image,time,price} = useLocalSearchParams<{
+    const {id,name,image,time,price,location,extras} = useLocalSearchParams<{
         id:string,
         name:string,
         image:string,
         time:string,
-        price:string
+        price:string,
+        location:string,
+        extras:string
     }>()
     const router = useRouter()
     const imageArray = image ? JSON.parse(image as string) : []
+        const extrasArray = extras ? JSON.parse(extras as string):[]
     const[currentPage,setCurrentPage] =useState(0)
+
+   
 
     const handlePress = () =>{
         router.push({
@@ -125,7 +130,7 @@ const FieldDetails = () => {
         <View style={styles.divider}/>
         <View style={styles.extras}>
             {
-                extras.map((item,index)=>(
+                extrasArray.map((item:string,index:number)=>(
                 <View style={styles.extrasItem} key={index}>
                     <Check color={'orange'} size={17} strokeWidth={3.0}/>
                     <Text style={{fontSize:14,fontWeight:'500',letterSpacing:0.8}}>{item}</Text>

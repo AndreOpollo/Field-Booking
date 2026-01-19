@@ -34,9 +34,9 @@ const BookingDetails = () => {
                 transition={300}
                 placeholder={{}}/>
             </View>
-            <View style={{flexDirection:'column',gap:8,
+            <View style={{flexDirection:'column',gap:8,flex:1
              }}>
-                <Text style={{fontSize:18,fontWeight:'600',letterSpacing:1.5}}>{name}</Text>
+                <Text style={{fontSize:18,fontWeight:'600',letterSpacing:1.5,flexWrap:'wrap'}} numberOfLines={3}>{name}</Text>
                 <View style={{flexDirection:'row',gap:8,alignItems:'center'}}>
                     <Clock3 size={16} color={'gray'}/>
                     <Text style={{fontSize:13,color:'gray',fontWeight:'500',letterSpacing:1.1}}>{time}</Text>
